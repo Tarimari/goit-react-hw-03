@@ -1,0 +1,11 @@
+.container {
+    margin: 15px;
+}
+
+.online {
+    color: green;
+}
+
+.offline {
+    color: red;
+}

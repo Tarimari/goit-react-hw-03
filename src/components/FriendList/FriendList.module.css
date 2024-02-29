@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 14px;
+    list-style: none;
+}
