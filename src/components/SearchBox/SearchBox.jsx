@@ -1,28 +1,22 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import { useId } from "react";
-import * as Yup from "yup";
 
-const UserSchema = Yup.object().shape({
-  username: Yup.string().lowercase("lowercase"),
-});
-
-export default function SearchBox() {
+export default function SearchBox({ setSearchBar }) {
   const searchName = useId();
+
   return (
     <Formik
       initialValues={{
         name: "",
       }}
       onSubmit={(values, action) => {
-        console.log(values);
+        setSearchBar(values.name.toLowerCase());
         action.resetForm();
       }}
-      validationSchema={UserSchema}
     >
       <Form>
         <label htmlFor={searchName}>Find contact by name</label>
-        <Field type="text" name="name" id={searchName} />
-        <ErrorMessage name="name" component="span" />
+        <Field name="name" id={searchName} />
       </Form>
     </Formik>
   );
