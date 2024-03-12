@@ -1,6 +1,6 @@
 // import { Formik, Form, Field } from "formik";
 // import { useId } from "react";
-
+import css from "./SearchBox.module.css";
 export default function SearchBox({ searchBar, setSearchBar }) {
   // const searchName = useId();
   // return (
@@ -25,8 +25,15 @@ export default function SearchBox({ searchBar, setSearchBar }) {
   };
 
   return (
-    <div>
-      <input type="text" value={searchBar} onChange={handleChange} />
+    <div className={css.container}>
+      <label htmlFor="searchName">Find contact by name</label>
+      <input
+        className={css.elem}
+        type="text"
+        id="searchName"
+        value={searchBar}
+        onChange={handleChange}
+      />
       <p>{searchBar}</p>
     </div>
   );

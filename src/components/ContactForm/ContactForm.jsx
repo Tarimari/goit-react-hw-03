@@ -2,6 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
+import css from "./ContactForm.module.css";
 
 const UserSchema = Yup.object().shape({
   name: Yup.string()
@@ -37,14 +38,16 @@ export default function SearchBox({ setPhonebook, phonebook }) {
       }}
       validationSchema={UserSchema}
     >
-      <Form>
+      <Form className={css.container}>
         <label htmlFor={searchName}>Name</label>
-        <Field name="name" id={searchName} />
+        <Field className={css.elem} name="name" id={searchName} />
         <ErrorMessage name="name" component="span" />
         <label htmlFor={searchName}>Number</label>
-        <Field name="number" id={searchName} />
+        <Field className={css.elem} name="number" id={searchName} />
         <ErrorMessage name="number" component="span" />
-        <button type="submit">Add contact</button>
+        <button className={css.btnAdd} type="submit">
+          Add contact
+        </button>
       </Form>
     </Formik>
   );

@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.element {
+  margin: 3px;
+}
