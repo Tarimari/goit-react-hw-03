@@ -1,18 +1,21 @@
 import { HiPhone } from "react-icons/hi2";
 import { IoPersonSharp } from "react-icons/io5";
 
-export default function Contact({ phonebook }) {
+export default function Contact({ contact, handleDeleteContact }) {
+  const idButton = contact.id;
   return (
     <>
       <div>
         <p>
-          <HiPhone /> {phonebook.name}
+          <HiPhone /> {contact.name}
         </p>
         <p>
-          <IoPersonSharp /> {phonebook.number}
+          <IoPersonSharp /> {contact.number}
         </p>
       </div>
-      <button>Delete</button>
+      <button onClick={() => handleDeleteContact(id)} id={idButton}>
+        Delete
+      </button>
     </>
   );
 }

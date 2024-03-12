@@ -17,14 +17,24 @@ export default function App() {
     contact.name.toLowerCase().includes(searchBar)
   );
 
+  const handleDeleteContact = (value) => {
+    const updatedPhonebook = phonebook.filter((pers) => {
+      pers.id !== value;
+    });
+    setPhonebook(updatedPhonebook);
+  };
+
   return (
     <>
       <div>
         <h1>Phonebook</h1>
 
         <ContactForm setPhonebook={setPhonebook} phonebook={phonebook} />
-        <SearchBox setSearchBar={setSearchBar} />
-        <ContactList phonebooks={filtersNames} />
+        <SearchBox searchBar={searchBar} setSearchBar={setSearchBar} />
+        <ContactList
+          filtersNames={filtersNames}
+          handleDeleteContact={handleDeleteContact}
+        />
       </div>
     </>
   );
