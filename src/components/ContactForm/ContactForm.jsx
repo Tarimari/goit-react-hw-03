@@ -20,7 +20,7 @@ const UserSchema = Yup.object().shape({
   // .required("Required"),
 });
 
-export default function SearchBox({ setPhonebook, phonebook }) {
+export default function SearchBox({ addContact }) {
   const searchName = useId();
   return (
     <Formik
@@ -33,7 +33,7 @@ export default function SearchBox({ setPhonebook, phonebook }) {
           ...values,
           id: nanoid(),
         };
-        setPhonebook([...phonebook, val]);
+        addContact(val);
         action.resetForm();
       }}
       validationSchema={UserSchema}

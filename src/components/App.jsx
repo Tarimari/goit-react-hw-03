@@ -36,12 +36,16 @@ export default function App() {
     setPhonebook(updatedPhonebook);
   };
 
+  const addContact = (obj) => {
+    setPhonebook([...phonebook, obj]);
+  };
+
   return (
     <>
       <div className={css.container}>
         <h1>Phonebook</h1>
 
-        <ContactForm setPhonebook={setPhonebook} phonebook={phonebook} />
+        <ContactForm addContact={addContact} />
         <SearchBox searchBar={searchBar} setSearchBar={setSearchBar} />
         <ContactList
           filtersNames={filtersNames}
